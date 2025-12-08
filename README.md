@@ -22,7 +22,6 @@
 
 ## 💬 联系与交流
 
-- GitHub: [1247296020-maker](https://github.com/1247296020-maker)
 - 欢迎通过 Issue 或 Discussions 区留言交流！
 
 ---
