@@ -10,6 +10,7 @@ import argparse
 import time
 from LLaMA2 import LLaMA2Model
 from LLaMA2 import ModelConfig
+
 # test tokenizer
 # text = "<|im_start|>assistant\n"     # [   0,   69,   87,   87,   77, 7421, 2425,   88,  203]
 # encoded_input = tokenizer(text, return_tensors='pt')
@@ -261,14 +262,14 @@ if __name__ == "__main__":
     parser.add_argument("--log_interval", type=int, default=100, help="日志记录间隔")
     parser.add_argument("--save_interval", type=int, default=1000, help="模型保存间隔")
     
-    # 多GPU训练参数
+    # 多GPU训练参数 ctx =  torch.amp.autocast(device_type=args.device.split(':')[0], dtype=getattr(torch, args.dtype))
     parser.add_argument("--gpus", type=str, default='0,1,2,3,4,5,6,7', help="使用的GPU ID，用逗号分隔 (例如: '0,1,2')")
 
     args = parser.parse_args()
     
 
     # 混合精度上下文管理器
-    ctx =  torch.amp.autocast(device_type=args.device.split(':')[0], dtype=getattr(torch, args.dtype))
+   
     # ========================================================
     
 
