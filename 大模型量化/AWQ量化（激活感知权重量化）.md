@@ -23,7 +23,7 @@ $$
 
 ​	量化过程中的误差主要来自于取整，在量化过程中，比如INT4量化，权重数值越大，那么相对量化误差越小。
 
-量化函数写作$$Q(w)$$
+量化函数写作 $Q(w)$
 
 我们的**目标是让量化后的重要权重位置输出误差最小**：
 $$
@@ -31,12 +31,10 @@ $$
 $$
 让我们看单个元素的量化。假设我们使用 INT4（范围 -8 到 7），步长（Scale）为 $\Delta$。
 $$
-\Delta = \frac{max(|w|)}{2^{N-1}} (绝对值量化：INT4，N=4)
+\Delta = \frac{\max(|w|)}{2^{N-1}} \quad (\text{绝对值量化：INT4，} N=4)
 $$
 量化过程其实是：
 $$
-% 导言区需要加入：\usepackage{amsmath}
-
 \begin{align*}
     \text{量化：}Q(w) &= \operatorname{Round}\left( \frac{w}{\Delta} \right) \cdot \Delta \\
     \text{Quantization Error: } \mathcal{E}(Q(w)x) &= Q(w)x - wx \\
